@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Description à détailler">
+    <title>Mariage d'Axelle et Ludovic - Septembre 2021</title>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/vendors/bootstrap.min.css' %}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/vendors/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <!--=== Top image and title ===-->
+    <header>
+        <div class="hero d-flex align-items-center justify-content-center"
+            style="background-image: url({% static 'img/hero.jpg' %})">
+            <div class="text-center">
+                <img src="{% static 'img/wreath-white.svg' %}" class="hero__wreath hero__wreath--up"
+                    alt="Axelle et Ludovic" />
+                <h1 class="hero__title u-font-script" data-aos="zoom-in">Axelle & Ludovic</h1>
+                <p class="hero__date" data-aos="zoom-in" data-aos-delay="400">4 Septembre 2021</p>
+                <img src="{% static 'img/wreath-white.svg' %}" class="hero__wreath hero__wreath--down"
+                    alt="Axelle et Ludovic" />
+            </div>
+        </div>
+    </header>
+    <!--== End of top image and title ==-->
+
+    <!--=== Desktop navigation ===-->
+    <div class="nav u-border-b-grey d-none d-md-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="nav-list">
+                        <li><a href="#story" class="nav-list__link js-nav-link">Dans les épisodes précédents...</a></li>
+                        <li><a href="#friends" class="nav-list__link js-nav-link">Les témoins</a></li>
+                        <li><a href="#location" class="nav-list__link js-nav-link">Les infos pratiques</a></li>
+                        <li><a href="#rsvp" class="nav-list__link js-nav-link">Répondre à l'invitation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== End of desktop navigation ==-->
+
+    <!--=== Mobile navigation ===-->
+    <div class="mobile-nav d-md-none">
+        <div class="mobile-nav__trigger">
+            <a href="#" class="js-open-menu">
+                <ion-icon name="menu" class="icon icon--md icon--white"></ion-icon>
+            </a>
+        </div>
+        <ul class="mobile-nav-list js-menu">
+            <li><a href="#story" class="mobile-nav-list__link js-nav-link">Dans les épisodes précédents...</a></li>
+            <li><a href="#friends" class="mobile-nav-list__link js-nav-link">Les témoins</a></li>
+            <li><a href="#location" class="mobile-nav-list__link js-nav-link">Les infos pratiques</a></li>
+            <li><a href="#rsvp" class="mobile-nav-list__link js-nav-link">Répondre à l'invitation</a></li>
+        </ul>
+    </div>
+    <!--== End of mobile navigation ==-->
+
+    {% block content %}
+    {% endblock %}
+
+    <!--=== Footer ===-->
+    <footer class="footer u-bg-grey">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="text-center">
+                        <h2 class="u-font-script">thank <ion-icon name="heart"
+                                class="icon icon--md icon--primary animation-pulse"></ion-icon> you!</h2>
+                        <p class="footer__copy">Tous droits réservés &copy; Axelle et Ludovic &middot; 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--== End of footer ==-->
+
+
+    <!--===  SCRIPTS ===-->
+    <script src="{% static 'js/vendors/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/vendors/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/vendors/jquery.countdown.min.js' %}"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="{% static 'js/vendors/slick.min.js' %}"></script>
+    <script src="https://unpkg.com/ionicons@4.4.2/dist/ionicons.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+
+</html>

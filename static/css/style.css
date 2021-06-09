@@ -4,7 +4,7 @@
 	Author:			theme_div
 	Type:          	CSS
 	Last Update:   	29.09.2018
-	Primary color:	#ffd7d7 (pink)
+	Primary color:	#e6a375 (bright copper)
 
 
 	[Table of contents]
@@ -133,7 +133,7 @@ a:focus {
 }
 
 .icon--primary {
-	color: #ffd7d7;
+	color: #e6a375;
 }
 
 .icon--white {
@@ -145,7 +145,7 @@ a:focus {
 }
 
 .icon:hover {
-	color: #ffd7d7;
+	color: #e6a375;
 }
 
 /* fix for IE */
@@ -225,7 +225,7 @@ a:focus {
 }
 
 .u-bg-primary {
-	background-color: #ffd7d7;
+	background-color: #e6a375;
 }
 
 /* margins */
@@ -251,7 +251,7 @@ a:focus {
 	background-repeat: no-repeat;
 	background-position: top center;
 	padding: 50px 0;
-	color: #fff;
+	color: #e6a375;
 }
 
 .hero--small {
@@ -286,7 +286,7 @@ a:focus {
 
 @media(min-width: 768px) {
 	.hero__title {
-		font-size: 52px;
+		font-size: 62px;
 	}
 }
 
@@ -442,11 +442,16 @@ a:focus {
 	}
 }
 
+/* protagonists title */
+#protag {
+	margin-top: 50px;
+}
+
 /* 5.1. Counter */
 .counter-list {
 	list-style: none;
 	text-align: center;
-	margin-top: 25px;
+	margin-top: 0;
 }
 
 .counter-list__item {
@@ -673,7 +678,7 @@ a:focus {
 }
 
 .slider-arrow:hover svg path {
-	stroke: #ffd7d7;
+	stroke: #e6a375;
 }
 
 @media(min-width: 768px) {
@@ -877,7 +882,7 @@ a:focus {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	background-color: #ffd7d7;
+	background-color: #e6a375;
 	border: 0;
 	text-transform: uppercase;
 	font-size: 20px;
