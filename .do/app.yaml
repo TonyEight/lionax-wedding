@@ -5,7 +5,7 @@ services:
     repo: digitalocean/sample-django
     branch: static
     deploy_on_push: true
-  run_command: gunicorn --worker-tmp-dir /dev/shm mysite.wsgi
+  run_command: gunicorn --worker-tmp-dir /dev/shm lionax_wedding.wsgi
   envs:
   - key: DISABLE_COLLECTSTATIC
     value: "1"
