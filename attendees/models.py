@@ -1,4 +1,7 @@
 from django.db import models
+from django.urls import reverse
+
+from . import utils
 
 
 class Attendee(models.Model):
@@ -19,3 +22,9 @@ class Invitation(models.Model):
     comment = models.TextField(blank=True)
     hidden_comment = models.TextField(blank=True)
     attendees = models.ManyToManyField(Attendee, related_name="invitations")
+
+    def get_hashid(self):
+        return utils.h_encode(self.pk)
+
+    def get_absolute_url(self):
+        return reverse('attendees:invitation-update', kwargs={'pk': self.pk})
