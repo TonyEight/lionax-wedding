@@ -1,4 +1,5 @@
 name: lionax-wedding
+region: fra
 services:
 - environment_slug: python
   envs:
@@ -13,7 +14,7 @@ services:
     value: ${db.DATABASE_URL}
   - key: DEVELOPMENT_MODE
     scope: RUN_AND_BUILD_TIME
-    value: "True"
+    value: "False"
   github:
     branch: main
     deploy_on_push: true
@@ -26,48 +27,23 @@ services:
   - path: /
   run_command: gunicorn --worker-tmp-dir /dev/shm lionax_wedding.wsgi
   source_dir: /
-jobs:
-- name: makemigrations
-  kind: PRE_DEPLOY
-  github:
-    repo: TonyEight/lionax-wedding
-    branch: main
-    deploy_on_push: true
-  run_command: python manage.py makemigrations
-  envs:
-  - key: DATABASE_URL
-    value: ${db.DATABASE_URL}
-    scope: RUN_AND_BUILD_TIME
-- name: migrate
-  kind: PRE_DEPLOY
-  github:
-    repo: TonyEight/lionax-wedding
-    branch: main
-    deploy_on_push: true
-  run_command: python manage.py migrate
-  envs:
-  - key: DATABASE_URL
-    value: ${db.DATABASE_URL}
-    scope: RUN_AND_BUILD_TIME
 static_sites:
 - name: static
   github:
     repo: TonyEight/lionax-wedding
     branch: main
     deploy_on_push: true
-  # This happens as part of the Python/DJango buildpack:
-  # build_command: python manage.py collectstatic --noinput
   output_dir: staticfiles
   routes:
   - path: /static
 databases:
-# Create a new dev DB:
-- name: db
+- cluster_name: app-501b3aef-db75-4633-a1ae-03632ddb1df4
+  db_name: db
+  db_user: db
   engine: PG
+  name: db
+  production: true
   version: "12"
-# Or bring an existing DB:
-# - name: db
-#   production: true
-#   cluster_name: mydb
-#   engine: PG
-#   version: "12"
+domains:
+- domain: mariage.axelleetludovic.fr
+  type: PRIMARY
