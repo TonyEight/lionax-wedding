@@ -35,7 +35,7 @@
 	var $slider = $('.js-slider').slick({
 		centerMode: true,
 		centerPadding: '5%',
-		slidesToShow: 5,
+		slidesToShow: 1,
 		autoplay: true,
 		prevArrow: '.js-arrow-prev',
 		nextArrow: '.js-arrow-next',
@@ -44,7 +44,7 @@
 			{
 			breakpoint: 1200,
 			settings: {
-				slidesToShow: 3
+				slidesToShow: 1
 				}
 			},
 			{

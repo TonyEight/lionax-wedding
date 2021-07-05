@@ -39,11 +39,214 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<h2 id="protag" class="u-m-b-5 text-center u-font-script">...site en construction...</h2>
-				<h4 class="u-m-b-5 text-center">N'hésitez pas à revenir d'ici quelques jours</h4>
+				<h2 id="protag" class="u-m-b-5 text-center u-font-script">Les protagonistes</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="intro-content d-lg-flex">
+					<div class="intro-content__col">
+						<div class="intro-content__img" style="background-image:url('{% static 'img/bride.jpg' %}');">
+						</div>
+						<div class="intro-content__text u-bg-primary d-flex align-items-center">
+							<!-- this section is visible when hovered over bride image -->
+							<div>
+								<h4>Axelle</h4>
+								<p>
+									<span>31 ans... </span>
+									<span>(32 en novembre, mais nous n'y sommes pas </span>
+									<ion-icon name="happy"></ion-icon>
+									<span>)</span>
+								</p>
+								<p>
+									<span>Ma vie tourne globalement autour de bien manger... </span><br />
+									<span>J'aime manger... Je vous ai déjà dit que j'aime manger ?</span>
+								</p>
+								<p>
+									<span>Je partage avec Ludovic cette passion pour la cuisine, le bon rhum et le
+										PSG.</span>
+									<span>En voilà trois bonnes raisons de l'épouser.</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<ion-icon name="heart" class="icon icon--xl icon--white"></ion-icon>
+					<div class="intro-content__col">
+						<div class="intro-content__img" style="background-image:url('{% static 'img/groom.jpg' %}');">
+						</div>
+						<div class="intro-content__text u-bg-grey d-flex align-items-center">
+							<!-- this section is visible when hovered over groom image -->
+							<div>
+								<h4>Ludovic</h4>
+								<p>
+									<span>36 ans... </span>
+									<span>(assumés </span>
+									<ion-icon name="happy"></ion-icon>
+									<span>)</span>
+								</p>
+								<p>
+									<span>Je suis passionné de musique, de technologie, de football, de cuisine !</span>
+									<span>J'en oublie sûrement mais... </span>
+									<span>Quand on aime, on ne compte pas, n'est-ce pas ?</span>
+								</p>
+								<p>
+									<span>Axelle magnifie mes passions et canalise mes émotions.</span>
+								</p>
+								<p>
+									<span>Ce sont deux excellentes raisons de l'épouser.</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
 <!--== End of intro section. ==-->
+
+<!--=== Out story timeline ===-->
+<section class="story u-bg-grey js-section" id="story">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2 class="u-m-t-n-3 u-font-script text-center">Notre histoire</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<div class="story-timeline d-md-flex">
+					<!-- Second and third text block should be written twice because of the different flow on desktop and mobile devices. Desktop uses two column layout, while mobile uses one column.
+						-->
+
+					<!-- Story timeline: left column -->
+					<div class="story-timeline__col story-timeline__col--left">
+						<div class="story-timeline__text">
+							<h4>
+								<ion-icon name="heart" class="icon icon--sm icon--primary u-bg-grey d-none d-md-block">
+								</ion-icon>Notre première rencontre
+							</h4>
+							<p>Novembre 2009.<br />
+								Nous avions respectivement 21 et 25 ans. Tous les deux étudiants, l'une sans idée
+								précise de son avenir, l'autre avec un emploi bien ciblé.<br />
+								Nous habitions en résidence étudiante et nous nous rencontrons pour la première fois au
+								cours d'une soirée pour les nouveaux arrivants.<br />
+								Quelques mois se sont écoulés avant d'officialiser notre histoire. Le point de départ de
+								11 années d'amour.</p>
+						</div>
+						<img src="{% static 'img/timeline2.jpg' %}" alt="Six happy years" data-aos="zoom-in-right" />
+						<!-- Only visible on mobile devices -->
+						<div class="story-timeline__text d-md-none" data-aos="zoom-in-right">
+							<h4>11 années !</h4>
+							<p>Qu'elles sont passées vite ces années !<br />
+								Pour celles et ceux qui sont là depuis le début, notre route vous a peut-être paru
+								tracée et paisible. Si tel est le cas, nous sommes heureux d'avoir su donner cette
+								illusion !<br />
+								L'amour c'est beau mais l'amour c'est difficile. Ainsi nous avons eu beaucoup de moments
+								heureux, et beaucoup d'autres tout aussi difficiles.<br />
+								Nous retiendrons simplement que l'amour a toujours gagné.</p>
+						</div>
+						<!-- Only visible on desktop devices -->
+						<div class="story-timeline__text d-none d-md-block" data-aos="zoom-in-right">
+							<h4>
+								<ion-icon name="heart" class="icon icon--sm icon--primary u-bg-grey d-none d-md-block">
+								</ion-icon>Elle a dit oui !
+							</h4>
+							<p>Un certain jeudi 6 août 2020...<br />
+								Lors d'une balade en bateau organisée par Ludovic (petit cachottier), il a demandé à
+								Axelle de l'épouser.<br />
+								Elle a pleuré (pas tant que ça), il a pleuré (pardon ?).<br />
+								Les passants ont applaudi, c'était magique !</p>
+						</div>
+					</div>
+
+					<!-- Story timeline: right column -->
+					<div class="story-timeline__col story-timeline__col--right">
+						<img src="{% static 'img/timeline1.jpg' %}" alt="First time we met" data-aos="zoom-in-left" />
+						<!-- Only visible on desktop devices -->
+						<div class="story-timeline__text d-none d-md-block" data-aos="zoom-in-left">
+							<h4>11 années !<ion-icon name="heart"
+									class="icon icon--sm icon--primary u-bg-grey d-none d-md-block" data-aos="zoom-in"
+									data-aos-delay="700"></ion-icon>
+							</h4>
+							<p>Qu'elles sont passées vite ces années !<br />
+								Pour celles et ceux qui sont là depuis le début, notre route vous a peut-être paru
+								tracée et paisible. Si tel est le cas, nous sommes heureux d'avoir su donner cette
+								illusion !<br />
+								L'amour c'est beau mais l'amour c'est difficile. Ainsi nous avons eu beaucoup de moments
+								heureux, et beaucoup d'autres tout aussi difficiles.<br />
+								Nous retiendrons simplement que l'amour a toujours gagné.</p>
+						</div>
+						<!-- Only visible on mobile devices -->
+						<div class="story-timeline__text d-md-none" data-aos="zoom-in-left">
+							<h4>Elle a dit oui !</h4>
+							<p>Un certain jeudi 6 août 2020...<br />
+								Lors d'une balade en bateau organisée par Ludovic (petit cachottier), il a demandé à
+								Axelle de l'épouser.<br />
+								Elle a pleuré (pas tant que ça), il a pleuré (pardon ?).<br />
+								Les passants ont applaudi, c'était magique !</p>
+						</div>
+						<img src="{% static 'img/timeline3.jpg' %}" alt="She said yes" data-aos="zoom-in-left" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--== End of our story timeline. ==-->
+
+<!--=== Bridesmaids & Groomsmen ===-->
+<section class="friends js-section" id="friends">
+	<h2 class="u-font-script text-center u-m-b-5">Nos témoins</h2>
+	<ul class="slider-list js-slider">
+		<li class="slider-list__item js-slide">
+			<!-- <img src="{% static 'img/friend.jpg' %}" alt="Rachel Brown" /> -->
+			<p class="font-weight-bold">Audrey AUBOU</p>
+			<p>Témoin des Mariés - Accompagne Axelle</p>
+		</li>
+		<li class="slider-list__item js-slide">
+			<!-- <img src="{% static 'img/friend.jpg' %}" alt="Rachel Brown" /> -->
+			<p class="font-weight-bold">Paola SI ABDELKADER</p>
+			<p>Témoin des Mariés - Accompagne Axelle</p>
+		</li>
+		<li class="slider-list__item js-slide">
+			<!-- <img src="{% static 'img/friend.jpg' %}" alt="Rachel Brown" /> -->
+			<p class="font-weight-bold">Philippe THIANT</p>
+			<p>Témoin des Mariés - Accompagne Ludovic</p>
+		</li>
+		<li class="slider-list__item js-slide">
+			<!-- <img src="{% static 'img/friend.jpg' %}" alt="Rachel Brown" /> -->
+			<p class="font-weight-bold">Stéphane DESROSES</p>
+			<p>Témoin des Mariés - Accompagne Ludovic</p>
+		</li>
+	</ul>
+	<div class="d-none d-lg-flex slider-arrows js-slider-arrows">
+		<span class="slider-arrow js-arrow-prev">
+			<svg width="40" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 10">
+				<path fill="none" d="M5 10L1 5l4-5M40 5H1.5" />
+			</svg>
+		</span>
+		<ion-icon name="heart" class="icon icon--sm icon--primary"></ion-icon>
+		<span class="slider-arrow js-arrow-next">
+			<svg width="40" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 10">
+				<path fill="none" d="M36 0l4 5-4 5M1 5h38.5" />
+			</svg>
+		</span>
+	</div>
+</section>
+<!--== End of bridesmaids & groomsmen. ==-->
+
+<!--=== Qoute ===-->
+<section class="quote u-bg-grey">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 offset-md-1">
+				<h3 class="quote__text font-italic">"Aimez-vous l'un l'autre, mais ne faites pas de l'amour une chaîne.
+					<br />Laissez le plutôt être une mer dansant entre les rivages de vos âmes."
+				</h3>
+			</div>
+		</div>
+	</div>
+</section>
+<!--== End of quote. ==-->
 {% endblock %}
