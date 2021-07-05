@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!--=== Location Info ===-->
+<section class="location js-section" id="location">
+	<h2 class="u-font-script text-center u-m-b-5">when & where</h2>
+	<div class="container">
+		<div class="row">
+			<!-- Location: left column -->
+			<div class="col-md-6">
+				<div class="location__text location__text--sm u-bg-grey ml-auto u-m-b-3" data-aos="zoom-in-right">
+					<h6 class="text-uppercase">Wedding Ceremony - 17:00</h6>
+					<h3>Church of St.Willow</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+						laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</div>
+				<img src="{% static 'img/location1.jpg' %}" class="location__img location__img--sm ml-auto"
+					alt="Location" data-aos="zoom-in-right">
+				<img src="{% static 'img/location2.jpg' %}" class="location__img" alt="Location"
+					data-aos="zoom-in-right">
+			</div>
+
+			<!-- Location: right column -->
+			<div class="col-md-6">
+				<img src="{% static 'img/location3.jpg' %}" class="location__img location__img--sm" alt="Location"
+					data-aos="zoom-in-left">
+				<div class="location__text location__text--sm u-bg-grey" data-aos="zoom-in-left">
+					<h6 class="text-uppercase">Wedding Party - 19:00</h6>
+					<h3>Oak Park</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+						laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--== End of location info. ==-->
+{% endblock %}
