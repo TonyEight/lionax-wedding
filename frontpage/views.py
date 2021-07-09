@@ -10,4 +10,4 @@ class InformationView(generic.TemplateView):
 
 
 class WeddingListView(generic.TemplateView):
-    template_name = 'information.html'
+    template_name = 'wedding-list.html'
