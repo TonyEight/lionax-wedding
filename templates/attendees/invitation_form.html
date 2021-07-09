@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block content %}
-{{ object }}
 <!--=== RSVP form ===-->
 <section class="rsvp js-section" id="rsvp">
     <div class="container">
@@ -11,38 +10,52 @@
                 <div class="rsvp-box u-bg-white">
                     <div class="js-form-wrapper">
                         <div class="text-center">
-                            <h3 class="rsvp-box__title u-font-script">be our guest!</h3>
-                            <p class="rsvp-box__subtitle">Please confirm your arrival by <mark
-                                    class="font-weight-bold">February 14, 2019</mark></p>
+                            <h3 class="rsvp-box__title u-font-script">Compléter mon invitation</h3>
+                            <p class="rsvp-box__subtitle">Merci de nous faire part de votre retour <mark
+                                    class="font-weight-bold">avant le 31 juillet 2021 au plus tard</mark></p>
                         </div>
-                        <form method="POST" class="rsvp-form js-form" id="rsvp-form" action="php/rsvp.php">
+                        <form method="POST" class="rsvp-form js-form" id="rsvp-form"
+                            action="{% url 'attendees:invitation-update' object.pk %}">
+                            {% csrf_token %}
                             <div class="d-md-flex justify-content-between">
                                 <div class="rsvp-form__left">
+                                    {% with total=object.attendees.count %}
+                                    <label class="font-weight-bold">Convive{{ total|pluralize }}</label>
+                                    {% for attendee in object.attendees.all %}
                                     <div class="rsvp-form-field">
-                                        <input type="text" name="fullname" placeholder="Full Name" required>
+                                        <p class="font-italic">{{ attendee }}</p>
                                     </div>
-                                    <div class="rsvp-form-field">
-                                        <input type="email" name="email" placeholder="Your E-mail" class="js-email"
-                                            required>
-                                        <p class="rsvp-form-field__error js-email-error">E-mail is incorrect.</p>
+                                    {% endfor %}
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox"
+                                            id="form.attend_the_ceremony.id">
+                                        <label class="form-check-label"
+                                            for="{{ form.attend_the_ceremony.id_for_label }}">Présent{{ total|pluralize }} à la cérémonie</label>
                                     </div>
-                                    <div class="rsvp-form-field">
-                                        <input type="number" name="guests" placeholder="Number of guests" required>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox"
+                                            id="form.attend_the_dinner.id">
+                                        <label class="form-check-label"
+                                            for="{{ form.attend_the_dinner.id_for_label }}">Présent{{ total|pluralize }} au dîner</label>
                                     </div>
-                                    <div class="rsvp-form-field">
-                                        <select name="attending" required>
-                                            <option value="" disabled selected>You are attending?</option>
-                                            <option value="all">All</option>
-                                            <option value="ceremony">Ceremony</option>
-                                            <option value="party">Dinner & Party</option>
-                                        </select>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox"
+                                            id="form.attend_the_party.id">
+                                        <label class="form-check-label"
+                                            for="{{ form.attend_the_party.id_for_label }}">Présent{{ total|pluralize }} à la soirée</label>
                                     </div>
+                                    {% endwith %}
                                 </div>
                                 <div class="rsvp-form__right">
-                                    <div class="rsvp-form-field h-100">
-                                        <textarea rows="4" placeholder="Your Message" class="h-100"
-                                            name="message"></textarea>
+                                    {% with total=object.attendees.count %}
+                                    <label class="font-weight-bold">Convive{{ total|pluralize }}</label>
+                                    {% endwith %}
+                                    {% for attendee in object.attendees.all %}
+                                    <div class="rsvp-form-field">
+                                        <p><span class="font-italic">{{ attendee }}</span><br />
+                                            {{ attendee.mobile_phone }}</p>
                                     </div>
+                                    {% endfor %}
                                 </div>
                             </div>
                             <button type="submit" class="rsvp-form-submit js-submit">

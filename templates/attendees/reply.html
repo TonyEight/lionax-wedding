@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!--=== RSVP form ===-->
+<section class="rsvp js-section" id="rsvp">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <div class="rsvp-box u-bg-white">
+                    <div class="js-form-wrapper">
+                        <div class="text-center">
+                            <h3 class="rsvp-box__title u-font-script">Accédez à mon invitation</h3>
+                            <p class="rsvp-box__subtitle">Renseignez simplement votre <mark
+                                    class="font-weight-bold">numéro de téléphone mobile</mark></p>
+                        </div>
+                        <style type="text/css">
+                            ::-webkit-input-placeholder {
+                                /* Chrome/Opera/Safari */
+                                text-align: center;
+                            }
+
+                            ::-moz-placeholder {
+                                /* Firefox 19+ */
+                                text-align: center;
+                            }
+
+                            :-ms-input-placeholder {
+                                /* IE 10+ */
+                                text-align: center;
+                            }
+
+                            :-moz-placeholder {
+                                /* Firefox 18- */
+                                text-align: center;
+                            }
+
+                            ol {
+                                font-size: 16px;
+                            }
+                        </style>
+                        <form method="POST" class="rsvp-form" id="rsvp-form"
+                            action="{% url 'attendees:invitation-reply' %}">
+                            {% csrf_token %}
+                            <div class="d-md-flex justify-content-center">
+                                {% for field in form %}
+                                <div class="rsvp-form-field">
+                                    {{ field.errors }}
+                                    {{ field }}
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <button type="submit" class="rsvp-form-submit">
+                                <ion-icon name="heart" class="icon icon--sm icon--white animation-pulse"></ion-icon>
+                                <span>Accéder</span>
+                                <ion-icon name="heart" class="icon icon--md icon--white animation-pulse"></ion-icon>
+                            </button>
+                        </form>
+                        <div class="rsvp-form">
+                            <p class="rsvp-box__subtitle">Si votre numéro de mobile est le "0612345678", vous le devrez
+                                saisir <mark class="font-weight-bold">au format international</mark> à savoir :<br/>
+                                Votre indicatif international suivi de "612345678" sans le "0".
+                            </p>
+                            <p class="rsvp-box__subtitle"><mark class="font-weight-bold">Pour la Métropole</mark>,
+                                indicatif = <mark class="font-weight-bold">+33</mark> suivi de votre numéro. <mark
+                                    class="font-italic">(exemple : +33612345678)</mark>
+                            </p>
+                            <p class="rsvp-box__subtitle"><mark class="font-weight-bold">Pour la Guadeloupe</mark>,
+                                indicatif = <mark class="font-weight-bold">+590</mark> suivi de votre numéro. <mark
+                                    class="font-italic">(exemple : +590690123456)</mark>
+                            </p>
+                            <p class="rsvp-box__subtitle"><mark class="font-weight-bold">Pour la Guyane</mark>,
+                                indicatif = <mark class="font-weight-bold">+594</mark> suivi de votre numéro. <mark
+                                    class="font-italic">(exemple : +594694123456)</mark>
+                            </p>
+                            <p class="rsvp-box__subtitle"><mark class="font-weight-bold">Pour la Martinique</mark>,
+                                indicatif = <mark class="font-weight-bold">+596</mark> suivi de votre numéro. <mark
+                                    class="font-italic">(exemple : +596696123456)</mark>
+                            </p>
+                        </div>
+                        <div class="rsvp-form">
+                            <p class="rsvp-box__subtitle">Si vous avez bien saisi votre numéro et qu'il n'est pas
+                                reconnu, c'est peut-être parce que :
+                            </p>
+                            <ol>
+                                <li>Vous renseignez votre numéro professionnel à la place de votre numéro personnel (ou
+                                    inversement)</li>
+                                <li>Nous avons uniquement le numéro de votre chéri(e) (et à ce moment, c'est bien ce
+                                    dernier qu'il faut renseigner)</li>
+                                <li>Nous nous sommes trompés dans la saisie (désolés !) alors envoyez-nous un texto ou un
+                                    Whatsapp !</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--== End of RSVP rsvp-form. ==-->
+{% endblock %}

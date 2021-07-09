@@ -3,7 +3,7 @@
 
 	Author:			theme_div
 	Type:          	JS
-	Last Update:   	30.09.2018
+	Last Update:   	07.07.2020 by llegendart
 
 	[Table of contents]
 	1. Counter
@@ -14,6 +14,7 @@
 	6. RSVP Form submission
 	7. Functions
 		7.1. Validate E-mail
+	8. Extra script
 
 ----------------------------------------------------*/
 
@@ -24,7 +25,7 @@
 	var $counter = $('.js-counter');
 	var $date = $counter.attr('data-date');
 
-	$counter.countdown($date, function(event) {
+	$counter.countdown($date, function (event) {
 		$('.js-counter-days').html(event.strftime('%D'));
 		$('.js-counter-hours').html(event.strftime('%H'));
 		$('.js-counter-minutes').html(event.strftime('%M'));
@@ -42,16 +43,16 @@
 		focusOnSelect: true,
 		responsive: [
 			{
-			breakpoint: 1200,
-			settings: {
-				slidesToShow: 1
+				breakpoint: 1200,
+				settings: {
+					slidesToShow: 1
 				}
 			},
 			{
-			breakpoint: 480,
-			settings: {
-				arrows: false,
-				slidesToShow: 1
+				breakpoint: 480,
+				settings: {
+					arrows: false,
+					slidesToShow: 1
 				}
 			}
 		]
@@ -74,12 +75,12 @@
 	});
 
 	// layout Masonry after each image loads
-	$grid.imagesLoaded().progress( function() {
+	$grid.imagesLoaded().progress(function () {
 		$grid.masonry('layout');
 	});
 
 	/*==== 5. Mobile menu (open/close) ====*/
-	$(document).on('click', '.js-open-menu', function(e) {
+	$(document).on('click', '.js-open-menu', function (e) {
 		e.preventDefault();
 		var $self = $(this);
 		var $icon = $('.icon', $self);
@@ -90,10 +91,10 @@
 		$('.js-menu').slideToggle('slow');
 		$icon.toggleClass('icon--black');
 
-	} );
+	});
 
 	/*==== 6. RSVP Form submission ====*/
-	$('.js-form').on('submit', function(e) {
+	$('.js-form').on('submit', function (e) {
 		e.preventDefault();
 		$('.js-loader').show();
 		var $form = $(this);
@@ -102,7 +103,7 @@
 		var email = $('.js-email').val()
 		var emailValidation = validateEmail(email);
 
-		if(!emailValidation) {
+		if (!emailValidation) {
 			$('.js-email').addClass('error');
 			$('.js-email-error').show();
 			$('.js-loader').hide();
@@ -118,17 +119,29 @@
 			url: action,
 			data: formData
 		})
-		.done(function(response) {
-			$('.js-loader').hide();
-			$('.js-form-wrapper').hide();
-			$('.js-form-confirmation').show();
-		})
-	} );
+			.done(function (response) {
+				$('.js-loader').hide();
+				$('.js-form-wrapper').hide();
+				$('.js-form-confirmation').show();
+			})
+	});
 
 	/*==== 7. FUNCTIONS ====*/
 	// 7.1. Validate E-mail
-	function validateEmail( email ) {
+	function validateEmail(email) {
 		var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		return regex.test( String( email ).toLowerCase() );
+		return regex.test(String(email).toLowerCase());
 	}
+
+	/*==== 8. Extra script ====*/
+	$(document).ready(function () {
+		var current_path = window.location.pathname;
+		if (current_path != '/') {
+			var target_offset = $('div.nav').first().offset();
+			var target_top = target_offset.top;
+			$('html, body').animate({
+				scrollTop: target_top
+			}, 2000);
+		}
+	});
 }(jQuery));

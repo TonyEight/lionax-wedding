@@ -12,6 +12,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/vendors/slick.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/svg+xml" href="{% static 'img/favicon.svg' %}">
 </head>
 
 <body>
@@ -37,11 +38,29 @@
             <div class="row">
                 <div class="col-sm-12">
                     <ul class="nav-list">
-                        <li><a href="#story" class="nav-list__link js-nav-link">Notre histoire</a></li>
-                        <li><a href="#friends" class="nav-list__link js-nav-link">Nos témoins</a></li>
-                        <li><a href="#" class="nav-list__link js-nav-link">Infos paratiques et formulaire de réponse (bientôt disponible)</a></li>
-                        <!-- <li><a href="#location" class="nav-list__link js-nav-link">Les infos pratiques</a></li>
-                        <li><a href="#rsvp" class="nav-list__link js-nav-link">Répondre à l'invitation</a></li> -->
+                        {% with request.resolver_match.url_name as url_name %}
+                        <li><a href="{% url 'frontpage:index' %}"
+                                class="nav-list__link js-nav-link {% if url_name == 'index' %}nav-list__link--active{% endif %}">Accueil</a>
+                        </li>
+                        <li><a href="{% url 'frontpage:information' %}"
+                                class="nav-list__link js-nav-link {% if url_name == 'information' %}nav-list__link--active{% endif %}">Infos
+                                pratiques</a></li>
+                        <!-- {% if url_name != 'invitation-update' and url_name != 'invitation-reply' %}
+                        <li><a href="{% url 'attendees:invitation-reply' %}" class="nav-list__link js-nav-link">Répondre
+                                à l'invitation</a></li>
+                        {% else %}
+                        <li><a class="nav-list__link js-nav-link nav-list__link--active">
+                                {% if url_name == 'invitation-reply' %}
+                                Accéder à mon invitation
+                                {% else %}
+                                Compléter mon invitation
+                                {% endif %}
+                            </a></li>
+                        {% endif %}
+                        <li><a href="{% url 'frontpage:wedding-list' %}"
+                                class="nav-list__link js-nav-link {% if url_name == 'wedding-list' %}nav-list__link--active{% endif %}">Liste
+                                de mariage</a></li> -->
+                        {% endwith %}
                     </ul>
                 </div>
             </div>
@@ -57,11 +76,29 @@
             </a>
         </div>
         <ul class="mobile-nav-list js-menu">
-            <li><a href="#story" class="mobile-nav-list__link js-nav-link">Notre histoire</a></li>
-            <li><a href="#friends" class="mobile-nav-list__link js-nav-link">Nos témoins</a></li>
-            <li><a href="#" class="mobile-nav-list__link js-nav-link">Infos paratiques et formulaire de réponse (bientôt disponible)</a></li>
-            <!-- <li><a href="#location" class="mobile-nav-list__link js-nav-link">Les infos pratiques</a></li>
-            <li><a href="#rsvp" class="mobile-nav-list__link js-nav-link">Répondre à l'invitation</a></li> -->
+            {% with request.resolver_match.url_name as url_name %}
+            <li><a href="{% url 'frontpage:index' %}"
+                    class="mobile-nav-list__link js-nav-link {% if url_name == 'index' %}mobile-nav-list__link--active{% endif %}">Accueil</a>
+            </li>
+            <li><a href="{% url 'frontpage:information' %}"
+                    class="mobile-nav-list__link js-nav-link {% if url_name == 'information' %}mobile-nav-list__link--active{% endif %}">Infos
+                    pratiques</a></li>
+           <!--  {% if url_name != 'invitation-update' and url_name != 'invitation-reply' %}
+            <li><a href="{% url 'attendees:invitation-reply' %}" class="mobile-nav-list__link js-nav-link">Répondre
+                    à l'invitation</a></li>
+            {% else %}
+            <li><a class="mobile-nav-list__link js-nav-link mobile-nav-list__link--active">
+                    {% if url_name == 'invitation-reply' %}
+                    Accéder à mon invitation
+                    {% else %}
+                    Compléter mon invitation
+                    {% endif %}
+                </a></li>
+            {% endif %}
+            <li><a href="{% url 'frontpage:wedding-list' %}"
+                    class="mobile-nav-list__link js-nav-link {% if url_name == 'wedding-list' %}mobile-nav-list__link--active{% endif %}">Liste
+                    de mariage</a></li> -->
+            {% endwith %}
         </ul>
     </div>
     <!--== End of mobile navigation ==-->

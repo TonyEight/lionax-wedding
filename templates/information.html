@@ -1,0 +1,246 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!--=== Location Info ===-->
+<section class="js-section u-p-t-5 u-p-b-5" id="location">
+	<h2 class="u-font-script text-center u-m-b-5">Lieux</h2>
+	<div class="container">
+		<div class="row">
+			<!-- Location: left column -->
+			<div class="col-md-6">
+				<div class="location__text location__text--sm u-bg-grey ml-auto u-m-b-3" data-aos="zoom-in-right">
+					<h6 class="text-uppercase">Mariage civil</h6>
+					<h3>Mairie du XIX<sup>ème</sup></h3>
+					<p>5/7 Place Armand Carrel, 75019 PARIS</p>
+					<p class="font-italic" style="font-size: 0.8rem;">
+						(nombre de places limité du fait de restrictions imposées par la mairie)
+					</p>
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.7038037314364!2d2.379793815903571!3d48.88292280693266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66ddaa2400b67%3A0x334473c7ba88933d!2sMairie%20du%2019%C3%A8me%20arrondissement%20de%20Paris!5e0!3m2!1sfr!2sfr!4v1625670212882!5m2!1sfr!2sfr"
+						width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+				</div>
+			</div>
+
+			<!-- Location: right column -->
+			<div class="col-md-6">
+				<div class="location__text location__text--sm u-bg-grey" data-aos="zoom-in-left">
+					<h6 class="text-uppercase">Cérémonie et Festivités</h6>
+					<h3>Manoir des Brumes</h3>
+					<p>2 Route de la Mer, 27150 BOUCHEVILLIERS</p>
+					<p class="font-italic" style="font-size: 0.9rem;">
+						(dès 17H00 pour l'ensemble des convives - <a
+							href="{% static 'attachments/plan_acces_manoir_des_brumes.pdf' %}" target="_blank">consulter
+							le plan d'accès</a>)
+					</p>
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2596.2473558325264!2d1.7082233159169078!3d49.40422777007178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e721173ffd7dbf%3A0xd3e49f068bc7ad33!2sLe%20Manoir%20des%20Brumes!5e0!3m2!1sfr!2sfr!4v1625669836806!5m2!1sfr!2sfr"
+						width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--== End of location info. ==-->
+
+<!--=== Program ===-->
+<section class="u-bg-grey js-section u-p-t-5 u-p-b-5" id="program">
+	<h2 class="u-font-script text-center u-m-b-5">Programme</h2>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<p>
+					Si le temps nous le permet, (et on l’espère de tout de cœur – fingers crossed) le cocktail et le
+					repas
+					se dérouleront en extérieur.
+				</p>
+				<p>
+					Pour la tombée de la nuit, prévoyez une petite veste pour vous couvrir au besoin.<br />
+					Pour la suite, on ne doute pas que la piste de danse (en intérieur) permettra à tout le monde de
+					se réchauffer !
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<ul>
+					<li><span class="font-weight-bold">17H00</span> - <span
+							class="font-weight-bold font-primary">Accueil au Manoir</span> : <span>vous serez reçu-e-s
+							avec du jus de fruits et des mignardises réalisés par le domaine</span></li>
+					<li><span class="font-weight-bold">17H45</span> - <span
+							class="font-weight-bold font-primary">Cérémonie de Bénédiction du Mariage</span> : <span>le
+						</span><span class="font-weight-bold">Pasteur Schlumberger</span><span>, avec qui nous avons
+							préparé
+							notre mariage des mois durant, procèdera à la bénédiction de notre mariage, d’une durée
+							d’environ 30 minutes. Il s’agit d’un moment fondamental pour nous au cours duquel nous
+							échangerons nos vœux et nos alliances. Vous êtes chaleureusement convié-e-s à partager ce
+							moment avec nous.</span></li>
+					<li><span class="font-weight-bold">18H15</span> - <span class="font-weight-bold font-primary">Séance
+							photo</span> : <span>On ne peut pas y échapper ! <ion-icon name="happy"
+								class="icon--primary"></ion-icon></span></li>
+					<li><span class="font-weight-bold">18H45</span> - <span class="font-weight-bold font-primary">Rhum
+							d'Honneur</span> : <span>Oh yeah ! <ion-icon name="wine" class="icon--primary"></ion-icon>
+						</span></li>
+					<li><span class="font-weight-bold">20H30</span> - <span
+							class="font-weight-bold font-primary">Dîner</span> : <span>Ici, on fuit la convention : pas
+							de plan de table et pas de dîner servi à table ! Mais promis, on va bien manger !</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+<!--== End of program. ==-->
+
+<!--=== Accommodation ===-->
+<section class="js-section u-p-t-5 u-p-b-5" id="accommodation">
+	<h2 class="u-font-script text-center u-m-b-5">Hébergements</h2>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<p>
+					Afin d’éviter de reprendre la route fatigué-e-s ou trop alcoolisé-e-s, vous pourrez trouver un
+					hébergement à proximité du domaine.<br />
+					Ci-dessous une liste qui pourrait vous aider.
+				</p>
+				<p>
+					Nous vous invitons à prendre contact directement avec les hébergements susceptibles de vous
+					intéresser.
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<h3 class="font-weight-bold text-center">AirBnB</h3>
+			</div>
+		</div>
+		<div class="row">
+			<!-- Location: left column -->
+			<div class="col-md-6">
+				<div class="location__text location__text--sm u-bg-grey ml-auto u-m-b-3" data-aos="zoom-in-right">
+					<h6 class="text-uppercase">Amécourt</h6>
+					<h3>Marcelline : Logement entier</h3>
+					<p class="font-italic">6min du Manoir, à 4,3km</p>
+					<p>1 chambre et 1 convertible<br />Prix : de 71€ à 95€</p>
+					<p><a class="icon--primary font-weight-bold"
+							href="https://www.airbnb.fr/rooms/16346410?check_in=2021-09-04&check_out=2021-09-05&guests=1&adults=1&s=67&unique_share_id=7f8bf736-fb64-471d-b136-35cc37a7793b"
+							target="_blank"><ion-icon name="bed"></ion-icon> Voir l'hébergement</a></p>
+				</div>
+				<div class="location__text location__text--sm u-bg-grey ml-auto u-m-b-3" data-aos="zoom-in-right">
+					<h6 class="text-uppercase">Martagny</h6>
+					<h3>Marie-France : 1 chambre privée chez l’hôte</h3>
+					<p class="font-italic">9min du Manoir, à 7,3km</p>
+					<p>1 chambre avec 1 lit double<br />Prix : 76€</p>
+					<p><a class="icon--primary font-weight-bold"
+							href="https://www.airbnb.fr/rooms/9425402?check_in=2021-09-04&check_out=2021-09-05&guests=1&adults=1&s=67&unique_share_id=5cf6ccb1-dde3-4a71-a187-f24482ae6423"
+							target="_blank"><ion-icon name="bed"></ion-icon> Voir l'hébergement</a></p>
+				</div>
+				<div class="location__text location__text--sm u-bg-grey ml-auto u-m-b-3" data-aos="zoom-in-right">
+					<h6 class="text-uppercase">Saint-Germer-de-Fly</h6>
+					<h3>Thérèse : 2 chambres privées chez l’hôte</h3>
+					<p class="font-italic">9min du Manoir, à 7,7km</p>
+					<p>2 chambres avec 2 lits doubles<br />Prix : de 44€ à 82€</p>
+					<p><a class="icon--primary font-weight-bold"
+							href="https://www.airbnb.fr/rooms/38819543?check_in=2021-09-04&check_out=2021-09-05&guests=1&adults=1&s=67&unique_share_id=4e7e3f76-c0a4-467d-8c5b-e5001b9c6a1a"
+							target="_blank"><ion-icon name="bed"></ion-icon> Voir l'hébergement</a></p>
+				</div>
+			</div>
+
+			<!-- Location: right column -->
+			<div class="col-md-6">
+				<div class="location__text location__text--sm u-bg-grey u-m-b-3" data-aos="zoom-in-left">
+					<h6 class="text-uppercase">Mainneville</h6>
+					<h3>Philippe : 2 chambres privées chez l’hôte</h3>
+					<p class="font-italic">9min du Manoir, à 7,5km</p>
+					<p>1 chambre avec 2 lits doubles<br />Prix : de 42€ à 131€ (25€/personnes + frais divers en fonction
+						du nombre de personnes)</p>
+					<p><a class="icon--primary font-weight-bold"
+							href="https://www.airbnb.fr/rooms/2858518?check_in=2021-09-04&check_out=2021-09-05&guests=1&adults=1&s=67&unique_share_id=7525018a-d13e-4a77-b90f-2425d9f2ad3b"
+							target="_blank"><ion-icon name="bed"></ion-icon> Voir l'hébergement</a></p>
+				</div>
+				<div class="location__text location__text--sm u-bg-grey u-m-b-3" data-aos="zoom-in-left">
+					<h6 class="text-uppercase">Gournay en Bray</h6>
+					<h3>Chantal : 1 chambre privée chez l’hôte</h3>
+					<p class="font-italic">10min du Manoir, à 8,7km</p>
+					<p>Pour famille : 1 lit double, 2 lits simples et 1 lit pour bébé (+ salle de bain privative)<br />Prix : de 51€ à 88€</p>
+					<p><a class="icon--primary font-weight-bold"
+							href="https://www.airbnb.fr/rooms/13438694?check_in=2021-09-04&check_out=2021-09-05&guests=1&adults=1&s=67&unique_share_id=02487b82-aed5-4453-b6d0-a56d5602d50e"
+							target="_blank"><ion-icon name="bed"></ion-icon> Voir l'hébergement</a></p>
+				</div>
+				<div class="location__text location__text--sm u-bg-grey u-m-b-3" data-aos="zoom-in-left">
+					<h6 class="text-uppercase">Gournay en Bray</h6>
+					<h3>Dominique : 2 chambres privées chez l’hôte</h3>
+					<p class="font-italic">10min du Manoir, à 8,7km</p>
+					<p>Pour famille ou amis car chambre en enfilade<br />Prix : 61€ à 110€</p>
+					<p><a class="icon--primary font-weight-bold"
+							href="https://www.airbnb.fr/rooms/28488785?check_in=2021-09-04&check_out=2021-09-05&guests=1&adults=1&s=67&unique_share_id=d267656a-8c66-4122-a77d-33874f7a9c58"
+							target="_blank"><ion-icon name="bed"></ion-icon> Voir l'hébergement</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<h3 class="font-weight-bold text-center">Booking.com</h3>
+			</div>
+		</div>
+		<div class="row">
+			<!-- Location: left column -->
+			<div class="col-md-6">
+				<div class="location__text location__text--sm u-bg-grey ml-auto u-m-b-3" data-aos="zoom-in-right">
+					<h6 class="text-uppercase">Amécourt</h6>
+					<h3>Chez Marcelline</h3>
+					<p class="font-italic">6min du Manoir, à 4,3km</p>
+					<p>1 chambre et 1 convertible<br />Prix : de 71€ à 78€</p>
+					<p><a class="icon--primary font-weight-bold"
+							href="http://www.booking.com/Share-SSPjL7D"
+							target="_blank"><ion-icon name="bed"></ion-icon> Voir l'hébergement</a></p>
+				</div>
+				<div class="location__text location__text--sm u-bg-grey ml-auto u-m-b-3" data-aos="zoom-in-right">
+					<h6 class="text-uppercase">Amécourt</h6>
+					<h3>Tiny House</h3>
+					<p class="font-italic">6min du Manoir, à 4,3km</p>
+					<p>1 lit double<br />Prix : 70€</p>
+					<p><a class="icon--primary font-weight-bold"
+							href="http://www.booking.com/Share-cEmVqK"
+							target=<ion-icon name="happy"
+								class="icon--primary"></ion-icon> l'hébergement</a></p>
+				</div>
+			</div>
+
+			<!-- Location: right column -->
+			<div class="col-md-6">
+				<div class="location__text location__text--sm u-bg-grey u-m-b-3" data-aos="zoom-in-left">
+					<h6 class="text-uppercase">Gournay en Bray</h6>
+					<h3>Au détour de Gournay</h3>
+					<p class="font-italic">11min du Manoir, à 9,2km</p>
+					<p>Diverses chambres pour 2 à 6 personnes<br />Prix : de 90€ à 200€</p>
+					<p><a class="icon--primary font-weight-bold"
+							href="http://www.booking.com/Share-Yvqyci"
+							target="_blank"><ion-icon name="bed"></ion-icon> Voir l'hébergement</a></p>
+				</div>
+				<div class="location__text location__text--sm u-bg-grey u-m-b-3" data-aos="zoom-in-left">
+					<h6 class="text-uppercase">Gournay en Bray</h6>
+					<h3>Hôtel de Normandie</h3>
+					<p class="font-italic">11min du Manoir, à 9,3km</p>
+					<p>Diverses chambres pour 1 à 3 personnes<br />Prix : de 65€ à 88€</p>
+					<p><a class="icon--primary font-weight-bold"
+							href="http://www.booking.com/Share-cDyIb4"
+							target="_blank"><ion-icon name="bed"></ion-icon> Voir l'hébergement</a></p>
+				</div>
+				<div class="location__text location__text--sm u-bg-grey u-m-b-3" data-aos="zoom-in-left">
+					<h6 class="text-uppercase">Gournay en Bray</h6>
+					<h3>Hôtel Le Saint Aubin</h3>
+					<p class="font-italic">15min du Manoir, à 11km</p>
+					<p>Diverses chambres pour 1 à 4 personnes<br />Prix : de 74€ à 103€</p>
+					<p><a class="icon--primary font-weight-bold"
+							href="http://www.booking.com/Share-F6rP8M"
+							target="_blank"><ion-icon name="bed"></ion-icon> Voir l'hébergement</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+</section>
+<!--== End of accommodation. ==-->
+{% endblock %}

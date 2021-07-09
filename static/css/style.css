@@ -3,7 +3,7 @@
 
 	Author:			theme_div
 	Type:          	CSS
-	Last Update:   	29.09.2018
+	Last Update:   	0.07.2021 by llegendart
 	Primary color:	#e6a375 (bright copper)
 
 
@@ -25,6 +25,7 @@
 	11. Memories
 		11.1. Masonry
 	12. Footer
+	13. Form
 
 ----------------------------------------------------*/
 
@@ -237,12 +238,24 @@ a:focus {
 	margin-bottom: 50px;
 }
 
+.u-p-t-5 {
+	padding-top: 50px;
+}
+
+.u-p-b-5 {
+	padding-bottom: 50px;
+}
+
 .u-m-b-8 {
 	margin-bottom: 80px;
 }
 
 .u-m-t-n-3 {
 	margin-top: -30px;
+}
+
+.font-primary {
+	color: #e6a375;
 }
 
 /*============== 3. Hero ==============*/
@@ -322,16 +335,20 @@ a:focus {
 	padding: 0 18px;
 }
 
-.nav-list__link {
+.nav-list__link,
+.nav-list__sub {
 	display: inline-block;
 	padding: 14px 0;
-	text-transform: uppercase;
 	color: #414141;
 	letter-spacing: 0.5px;
 	font-size: 16px;
 	border-bottom: 1px solid #fff;
 	transition: all .3s ease;
 	-webkit-transition: all .3s ease;
+}
+
+.nav-list__link {
+	text-transform: uppercase;
 }
 
 .nav-list__link--active,
@@ -508,7 +525,7 @@ a:focus {
 
 /*============== 6. Story ==============*/
 .story-timeline {
-	padding: 50px 0 100px;
+	padding: 50px 0;
 	position: relative;
 }
 
@@ -527,7 +544,7 @@ a:focus {
 
 @media(min-width: 768px) {
 	.story-timeline {
-		padding: 100px 0;
+		padding: 50px 0;
 	}
 
 	.story-timeline__col {
@@ -1030,4 +1047,128 @@ a:focus {
 	.footer {
 		padding: 80px 0 20px;
 	}
+}
+
+/*============== 13. Form ==============*/
+.form-check {
+	display: block;
+	min-height: 1.5rem;
+	padding-left: 1.5em;
+	margin-bottom: .125rem
+}
+
+.form-check .form-check-input {
+	float: left;
+	margin-left: -1.5em
+}
+
+.form-check-input {
+	width: 1em;
+	height: 1em;
+	margin-top: .25em;
+	vertical-align: top;
+	background-color: #fff;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	border: 1px solid rgba(230, 163, 117, 0.25);
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	-webkit-print-color-adjust: exact;
+	color-adjust: exact
+}
+
+.form-check-input[type=checkbox] {
+	border-radius: .25em
+}
+
+.form-check-input[type=radio] {
+	border-radius: 50%
+}
+
+.form-check-input:active {
+	filter: brightness(90%)
+}
+
+.form-check-input:focus {
+	border-color: #eecab1;
+	outline: 0;
+	box-shadow: 0 0 0 .25rem rgba(238, 202, 177, 0.25)
+}
+
+.form-check-input:checked {
+	background-color: #e6a375;
+	border-color: #e6a375;
+}
+
+.form-check-input:checked[type=checkbox] {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e")
+}
+
+.form-check-input:checked[type=radio] {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e")
+}
+
+.form-check-input[type=checkbox]:indeterminate {
+	background-color: #e6a375;
+	border-color: #e6a375;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e")
+}
+
+.form-check-input:disabled {
+	pointer-events: none;
+	filter: none;
+	opacity: .5
+}
+
+.form-check-input:disabled~.form-check-label,
+.form-check-input[disabled]~.form-check-label {
+	opacity: .5
+}
+
+.form-switch {
+	padding-left: 2.5em
+}
+
+.form-switch .form-check-input {
+	width: 2em;
+	margin-left: -2.5em;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%28230, 163, 117, 0.25%29'/%3e%3c/svg%3e");
+	background-position: left center;
+	border-radius: 2em;
+	transition: background-position .15s ease-in-out
+}
+
+@media (prefers-reduced-motion:reduce) {
+	.form-switch .form-check-input {
+		transition: none
+	}
+}
+
+.form-switch .form-check-input:focus {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23e6a375'/%3e%3c/svg%3e")
+}
+
+.form-switch .form-check-input:checked {
+	background-position: right center;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e")
+}
+
+.form-check-inline {
+	display: inline-block;
+	margin-right: 1rem
+}
+
+.btn-check {
+	position: absolute;
+	clip: rect(0, 0, 0, 0);
+	pointer-events: none
+}
+
+.btn-check:disabled+.btn,
+.btn-check[disabled]+.btn {
+	pointer-events: none;
+	filter: none;
+	opacity: .65
 }
