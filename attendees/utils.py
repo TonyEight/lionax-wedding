@@ -28,9 +28,7 @@ def h_encode(id):
 
 def h_decode(h):
     z = hashids.decode(h)
-    print(z)
     if z:
-        print(z[0])
         return z[0]
 
 

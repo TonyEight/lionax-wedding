@@ -43,9 +43,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'import_export',
-    'easyaudit',
-    'phonenumber_field',
+    "django.contrib.humanize",
+    "import_export",
+    "easyaudit",
+    "phonenumber_field",
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    'easyaudit.middleware.easyaudit.EasyAuditMiddleware',
+    "easyaudit.middleware.easyaudit.EasyAuditMiddleware",
 ]
 
 ROOT_URLCONF = "lionax_wedding.urls"
@@ -121,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "fr-fr"
 
 TIME_ZONE = "UTC"
 

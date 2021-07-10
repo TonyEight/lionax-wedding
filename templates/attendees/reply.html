@@ -4,6 +4,28 @@
 {% block content %}
 <!--=== RSVP form ===-->
 <section class="rsvp js-section" id="rsvp">
+    {% if error_message %}
+    <div class="container">
+		<div class="row">
+			<div class="col-lg-6 offset-lg-3">
+                {% if error_message == "number_not_found" %}
+				<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <h4 class="alert-heading font-weight-bold">Numéro non reconnu !</h4>
+                    <p>Si vous avez bien saisi votre numéro et qu'il n'est pas reconnu, c'est peut-être parce que :<br/><br/>
+                        &middot; Vous renseignez votre numéro professionnel à la place de votre numéro personnel (ou inversement)<br/>
+                        &middot; Nous avons uniquement le numéro de votre chéri(e) (et à ce moment, c'est bien ce dernier qu'il faut renseigner)<br/>
+                        &middot; Nous nous sommes trompés dans la saisie (désolés !) alors envoyez-nous un texto ou un Whatsapp !</p>
+                    <hr>
+                    <p class="mb-0">Veuillez réessayer ou prendre contact avec nous.</p>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+                {% endif %}
+			</div>
+		</div>
+	</div>
+    {% endif %}
     <div class="container">
         <div class="row">
             <div class="col-xl-10 offset-xl-1">
@@ -77,19 +99,6 @@
                                 indicatif = <mark class="font-weight-bold">+596</mark> suivi de votre numéro. <mark
                                     class="font-italic">(exemple : +596696123456)</mark>
                             </p>
-                        </div>
-                        <div class="rsvp-form">
-                            <p class="rsvp-box__subtitle">Si vous avez bien saisi votre numéro et qu'il n'est pas
-                                reconnu, c'est peut-être parce que :
-                            </p>
-                            <ol>
-                                <li>Vous renseignez votre numéro professionnel à la place de votre numéro personnel (ou
-                                    inversement)</li>
-                                <li>Nous avons uniquement le numéro de votre chéri(e) (et à ce moment, c'est bien ce
-                                    dernier qu'il faut renseigner)</li>
-                                <li>Nous nous sommes trompés dans la saisie (désolés !) alors envoyez-nous un texto ou un
-                                    Whatsapp !</li>
-                            </ol>
                         </div>
                     </div>
                 </div>

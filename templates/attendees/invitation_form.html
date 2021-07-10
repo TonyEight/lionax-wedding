@@ -1,9 +1,23 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static humanize %}
 
 {% block content %}
 <!--=== RSVP form ===-->
 <section class="rsvp js-section" id="rsvp">
+    {% if last_change %}
+    <div class="container">
+		<div class="row">
+			<div class="col-lg-6 offset-lg-3">
+				<div class="alert alert-light" role="alert">
+                    <h4 class="alert-heading font-weight-bold">Dernière modification</h4>
+                    <p>par {{ object.last_editor }}, {{ last_change.datetime|naturaltime }}</p>
+                    <hr>
+                    <p class="mb-0">Vous pouvez modifier / compléter vos réponses jusqu'au 31/07/2021.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+    {% endif %}
     <div class="container">
         <div class="row">
             <div class="col-xl-10 offset-xl-1">
@@ -14,9 +28,15 @@
                             <p class="rsvp-box__subtitle">Merci de nous faire part de votre retour <mark
                                     class="font-weight-bold">avant le 31 juillet 2021 au plus tard</mark></p>
                         </div>
-                        <form method="POST" class="rsvp-form js-form" id="rsvp-form"
-                            action="{% url 'attendees:invitation-update' object.pk %}">
+                        <form method="POST" class="rsvp-form" id="rsvp-form"
+                            action="">
                             {% csrf_token %}
+                            <input type="hidden" id="{{ form.is_eligible_to_sunday.id_for_label }}"
+                                name="{{ form.is_eligible_to_sunday.name }}" value="{{ form.is_eligible_to_sunday.value }}">
+                            <input type="hidden" id="{{ form.hidden_comment.id_for_label }}"
+                                name="{{ form.hidden_comment.name }}" value="{{ form.hidden_comment.value }}">
+                            <input type="hidden" id="{{ form.last_editor.id_for_label }}"
+                                name="{{ form.last_editor.name }}" value="{% if not last_editor %}{{ form.last_editor.value }}{% else %}{{ last_editor|stringformat:'s' }}{% endif %}">
                             <div class="d-md-flex justify-content-between">
                                 <div class="rsvp-form__left">
                                     {% with total=object.attendees.count %}
@@ -28,48 +48,121 @@
                                     {% endfor %}
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox"
-                                            id="form.attend_the_ceremony.id">
+                                            id="{{ form.attend_the_ceremony.id_for_label }}"
+                                            {% if form.attend_the_ceremony.field.required %}required{% endif %}
+                                            name="{{ form.attend_the_ceremony.name }}" 
+                                            {% if form.attend_the_ceremony.value == True %}checked{% endif %}>
                                         <label class="form-check-label"
                                             for="{{ form.attend_the_ceremony.id_for_label }}">Présent{{ total|pluralize }} à la cérémonie</label>
                                     </div>
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox"
-                                            id="form.attend_the_dinner.id">
+                                        <input class="form-check-input" type="checkbox" id="{{ form.attend_the_dinner.id_for_label }}"
+                                            {% if form.attend_the_dinner.field.required %}required{% endif %}
+                                            name="{{ form.attend_the_dinner.name }}" 
+                                            {% if form.attend_the_dinner.value == True %}checked{% endif %}>
                                         <label class="form-check-label"
                                             for="{{ form.attend_the_dinner.id_for_label }}">Présent{{ total|pluralize }} au dîner</label>
                                     </div>
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox"
-                                            id="form.attend_the_party.id">
+                                        <input class="form-check-input" type="checkbox" id="{{ form.attend_the_party.id_for_label }}"
+                                            {% if form.attend_the_party.field.required %}required{% endif %}
+                                            name="{{ form.attend_the_party.name }}" 
+                                            {% if form.attend_the_party.value == True %}checked{% endif %}>
                                         <label class="form-check-label"
                                             for="{{ form.attend_the_party.id_for_label }}">Présent{{ total|pluralize }} à la soirée</label>
                                     </div>
                                     {% endwith %}
                                 </div>
                                 <div class="rsvp-form__right">
-                                    {% with total=object.attendees.count %}
-                                    <label class="font-weight-bold">Convive{{ total|pluralize }}</label>
-                                    {% endwith %}
-                                    {% for attendee in object.attendees.all %}
+                                    <label class="font-weight-bold">Informations complémentaires</label>
                                     <div class="rsvp-form-field">
-                                        <p><span class="font-italic">{{ attendee }}</span><br />
-                                            {{ attendee.mobile_phone }}</p>
+                                        <textarea id="{{ form.comment.id_for_label }}" name="{{ form.comment.name }}"
+                                            placeholder="Merci de nous indiquer ici vos informations complémentaires" rows="4">{% if form.comment.value != None %}{{ form.comment.value }}{% endif %}</textarea>
                                     </div>
-                                    {% endfor %}
+                                    <p class="rsvp-box__subtitle">Si vous pensez venir avec vos enfants, merci
+                                        d'indiquer ci-dessus leur prénom et âge respectifs.<br/><br/>
+                                        Si vous envigez d'être accompagné-e-s d'une personne qui ne figure pas dans la liste des convives indiqués sur le formulaire de réponse,
+                                        merci d'indiquer ci-dessus son nom, prénom et numéro de téléphone.</p>
                                 </div>
                             </div>
-                            <button type="submit" class="rsvp-form-submit js-submit">
+                            {% if object.is_eligible_to_sunday %}
+                            <div class="d-md-flex justify-content-center">
+                                <div class="rsvp-form-field">
+                                    <img src="{% static 'img/favicon.svg' %}" class="separator separator-m-t" />
+                                </div>
+                            </div>
+                            <div class="d-md-flex justify-content-center">
+                                <div class="rsvp-form-field">
+                                    <label class="font-weight-bold">Brunch du lendemain</label>
+                                    <p class="rsvp-box__subtitle">La famille proche et le cercle amical intime est convié le lendemain à notre brunch d’après-mariage. Nous pourrons profiter ensemble du domaine et de sa piscine.</p>
+                                    <p class="rsvp-box__subtitle">Il s'agit d'un moment précieux que nous souhaitons partager avec ceux qui nous sont les plus chers.</p>
+                                    <p class="rsvp-box__subtitle">Le brunch est servi de <mark class="font-weight-bold">11H00 à 14H30</mark>.<br />
+                                        La piscine, chauffée, est accessible dès <mark class="font-weight-bold">8H30</mark>, <mark class="font-weight-bold">n’oubliez donc pas vos maillots</mark> !
+                                    </p>
+                                    <p class="rsvp-box__subtitle">Les invités au brunch sont fortement encouragés à dormir sur place. Le tarif de la chambre est de 
+                                        <mark class="font-weight-bold">{% if object.hidden_comment == "handled_20" %}88€{% else %}110€{% endif %}</mark>
+                                        la nuit pour 2 ou 3 personnes.<br />Les festivités prendront fin à 16H30, afin de quitter le domaine à 17H.</p>
+                                </div>
+                            </div>
+                            <div class="d-md-flex justify-content-center">
+                                <div class="rsvp-form-field">
+                                    <img src="{% static 'img/favicon.svg' %}" class="separator hero__wreath--up separator-m-b" />
+                                </div>
+                            </div>
+                            {% with total=object.attendees.count %}
+                            <div class="d-md-flex justify-content-between">
+                                <div class="rsvp-form__left">
+                                    <label class="font-weight-bold">Pour le lendemain</label>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="{{ form.attend_the_brunch.id_for_label }}"
+                                            {% if form.attend_the_brunch.field.required %}required{% endif %}
+                                            name="{{ form.attend_the_brunch.name }}" 
+                                            {% if form.attend_the_brunch.value == True %}checked{% endif %}>
+                                        <label class="form-check-label"
+                                            for="{{ form.attend_the_brunch.id_for_label }}">Présent{{ total|pluralize }} au brunch</label>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="{{ form.sleep_at_domain.id_for_label }}" {% if form.sleep_at_domain.field.required %}required{% endif %}
+                                            name="{{ form.sleep_at_domain.name }}" 
+                                            {% if form.sleep_at_domain.value == True %}checked{% endif %}>
+                                        <label class="form-check-label" for="{{ form.sleep_at_domain.id_for_label }}">
+                                            Passer{{ total|pluralize:"a,ont" }} la nuit au domaine{% if object.hidden_comment != "handled" %} et accepte{{ total|pluralize:"nt" }} de s'acquitter du prix de la chambre ({% if object.hidden_comment == "handled_20" %}88€{% else %}110€{% endif %}) auprès du domaine le lendemain{% endif %}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="rsvp-form__right">
+                                    <div class="rsvp-form-field">
+                                        {% if object.hidden_comment == "handled" %}
+                                        <label class="font-weight-bold">Les mariés {{ total|pluralize:"t',vous " }}offrent l'hébergement</label>
+                                        <p class="rsvp-box__subtitle">
+                                            Nous tenons à {{ total|pluralize:"ta,votre" }} présence, aussi nous souhaitons
+                                            {{ total|pluralize:"t',vous " }}offrir l'hébergement. {{ total|pluralize:"Ta,Votre" }} chambre {{ total|pluralize:"t',vous " }}attend ! {{ total|pluralize:"Tu n'auras,Vous n'aurez" }} donc rien à régler !
+                                        </p>
+                                        {% else %}
+                                        {% if object.hidden_comment == "handled_20" %}
+                                        <label class="font-weight-bold">Les mariés participent à une partie de {{ total|pluralize:"ton,votre" }} hébergement</label>
+                                        <p class="rsvp-box__subtitle">
+                                            Pour {{ total|pluralize:"toi,vous" }}, nous prenons en charge 20% du prix de l'hébergement. Soit la chambre à 88€ au lieu de 110€.
+                                        </p>
+                                        {% endif %}
+                                        <label class="font-weight-bold">Remarque</label>
+                                        <p class="rsvp-box__subtitle">Si vous ne souhaitez pas prendre la chambre
+                                            proposée par le Manoir et que vous souhaitez tout de même assister au
+                                            brunch, d'autres solutions d'hébergement vous sont notamment proposées dans
+                                            la section <a class="font-primary"
+                                                href="{% url 'frontpage:information' %}">Infos pratiques</a>.</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endwith %}
+                            {% endif %}
+                            <button type="submit" class="rsvp-form-submit">
                                 <ion-icon name="heart" class="icon icon--sm icon--white animation-pulse"></ion-icon>
-                                <span>Send</span>
+                                <span>Enregistrer</span>
                                 <ion-icon name="heart" class="icon icon--md icon--white animation-pulse"></ion-icon>
                             </button>
                         </form>
-                    </div>
-                    <!-- this message appears after rsvp-form is submitted correctly -->
-                    <div class="rsvp-confirmation text-center js-form-confirmation">
-                        <h4>We recieved your reservation.</h4>
-                        <span class="u-font-script u-h3">thank you!</span>
-                        <ion-icon name="heart" class="icon icon--md icon--primary"></ion-icon>
                     </div>
                 </div>
             </div>

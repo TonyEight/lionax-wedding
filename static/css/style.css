@@ -1172,3 +1172,16 @@ a:focus {
 	filter: none;
 	opacity: .65
 }
+
+.separator {
+	width: 200px;
+	margin: 50px 0;
+}
+/* 
+.separator-m-t {
+	margin-top: 80px;
+}
+
+.separator-m-b {
+	margin-bottom: 80px;
+} */

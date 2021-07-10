@@ -45,7 +45,7 @@
                         <li><a href="{% url 'frontpage:information' %}"
                                 class="nav-list__link js-nav-link {% if url_name == 'information' %}nav-list__link--active{% endif %}">Infos
                                 pratiques</a></li>
-                        <!-- {% if url_name != 'invitation-update' and url_name != 'invitation-reply' %}
+                        {% if url_name != 'invitation-update' and url_name != 'invitation-reply' %}
                         <li><a href="{% url 'attendees:invitation-reply' %}" class="nav-list__link js-nav-link">Répondre
                                 à l'invitation</a></li>
                         {% else %}
@@ -56,7 +56,7 @@
                                 Compléter mon invitation
                                 {% endif %}
                             </a></li>
-                        {% endif %} -->
+                        {% endif %}
                         <li><a href="{% url 'frontpage:wedding-list' %}"
                                 class="nav-list__link js-nav-link {% if url_name == 'wedding-list' %}nav-list__link--active{% endif %}">Liste
                                 de mariage</a></li>
@@ -83,7 +83,7 @@
             <li><a href="{% url 'frontpage:information' %}"
                     class="mobile-nav-list__link js-nav-link {% if url_name == 'information' %}mobile-nav-list__link--active{% endif %}">Infos
                     pratiques</a></li>
-            <!-- {% if url_name != 'invitation-update' and url_name != 'invitation-reply' %}
+            {% if url_name != 'invitation-update' and url_name != 'invitation-reply' %}
             <li><a href="{% url 'attendees:invitation-reply' %}" class="mobile-nav-list__link js-nav-link">Répondre
                     à l'invitation</a></li>
             {% else %}
@@ -94,7 +94,7 @@
                     Compléter mon invitation
                     {% endif %}
                 </a></li>
-            {% endif %} -->
+            {% endif %}
             <li><a href="{% url 'frontpage:wedding-list' %}"
                     class="mobile-nav-list__link js-nav-link {% if url_name == 'wedding-list' %}mobile-nav-list__link--active{% endif %}">Liste
                     de mariage</a></li>
