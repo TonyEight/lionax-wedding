@@ -8,12 +8,18 @@ from . import utils
 class Attendee(models.Model):
     civility = models.CharField(max_length=20, blank=True)
     first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
-    mobile_phone = PhoneNumberField(unique=True)
-    email = models.EmailField(blank=True)
+    last_name = models.CharField(max_length=255, blank=True, null=True)
+    mobile_phone = PhoneNumberField()
+    email = models.EmailField(blank=True, null=True)
 
     def __str__(self):
-        return '{0} {1} {2}'.format(self.civility, self.first_name, self.last_name)
+        civility = ""
+        if self.civility:
+            civility = self.civility
+        last_name = ""
+        if self.last_name:
+            last_name = self.last_name
+        return '{0} {1} {2}'.format(civility, self.first_name, last_name)
 
 
 class Invitation(models.Model):

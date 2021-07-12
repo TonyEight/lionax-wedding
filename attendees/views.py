@@ -45,7 +45,8 @@ class InvitationReplyView(FormView):
     def form_valid(self, form):
         mobile_phone = form.cleaned_data['mobile_phone']
         try:
-            attendee = models.Attendee.objects.get(mobile_phone=mobile_phone)
+            attendees = models.Attendee.objects.filter(mobile_phone=mobile_phone)
+            attendee = attendees[0]
         except models.Attendee.DoesNotExist:
             return self.form_invalid(form)
         invitations = models.Invitation.objects.filter(attendees__in=[attendee,])
