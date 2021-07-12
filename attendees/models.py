@@ -23,26 +23,23 @@ class Attendee(models.Model):
 
 
 class Invitation(models.Model):
-    attend_the_ceremony = models.BooleanField()
-    attend_the_dinner = models.BooleanField()
-    attend_the_party = models.BooleanField()
+    attend_the_ceremony = models.BooleanField(default=False)
+    attend_the_dinner = models.BooleanField(default=False)
+    attend_the_party = models.BooleanField(default=False)
     sleep_at_domain = models.BooleanField(default=False)
     accept_to_pay = models.BooleanField(default=False)
     attend_the_brunch = models.BooleanField(default=False)
     is_eligible_to_sunday = models.BooleanField(default=False)
-    comment = models.TextField(blank=True)
-    hidden_comment = models.TextField(blank=True)
+    comment = models.TextField(blank=True, null=True)
+    hidden_comment = models.TextField(blank=True, null=True)
     last_editor = models.CharField(max_length=255, default="Axelle et Ludovic", blank=True)
     attendees = models.ManyToManyField(Attendee, related_name="invitations")
-
-    def _get_first_attendee(self):
-        return self.attendees.all()[0]
 
     def get_hashid(self):
         return utils.h_encode(self.pk)
 
     def __str__(self):
-        return 'Invitation {0} ({1})'.format(self.pk, self._get_first_attendee().last_name)
+        return 'Invitation {0}'.format(self.pk)
 
     def get_absolute_url(self):
         return reverse('attendees:invitation-update', kwargs={'pk': self.pk})
