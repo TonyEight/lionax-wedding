@@ -2,6 +2,24 @@
 {% load static %}
 
 {% block content %}
+<!--=== Update alert ===-->
+<section class="js-section u-p-t-5 u-p-b-5" id="alert">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 offset-lg-3">
+				<div class="alert alert-light alert-dismissible fade show" role="alert">
+					<strong>Attention :</strong> La page <a href="{% url 'frontpage:wedding-list' %}">Liste de mariage</a> a été mise à jour.<br/>
+					Pensez également à consulter la nouvelle page <a href="{% url 'frontpage:covid-19' %}">Infos crise sanitaire</a> pour prendre connaissance des dispositions relatives à la crise sanitaire.
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--== End of update alert. ==-->
+
 <!--=== Intro: About bride & groom. Counter. ===-->
 <section class="intro" id="intro">
 	<div class="container">
@@ -232,7 +250,7 @@
 </section>
 <!--== End of bridesmaids & groomsmen. ==-->
 
-<!--=== Qoute ===-->
+<!--=== Quote ===-->
 <section class="quote u-bg-grey">
 	<div class="container">
 		<div class="row">

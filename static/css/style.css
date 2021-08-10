@@ -94,9 +94,21 @@ svg {
 	max-width: 100%;
 }
 
+a,
 a:hover,
 a:focus {
+	color: #e6a375;
 	text-decoration: none;
+}
+
+.alert a:hover,
+.alert a:focus {
+	color: #000;
+	text-decoration: underline;
+}
+
+.alert {
+	background-color: #e6a27513;
 }
 
 /* 1.1 Animations */
@@ -1177,11 +1189,3 @@ a:focus {
 	width: 200px;
 	margin: 50px 0;
 }
-/* 
-.separator-m-t {
-	margin-top: 80px;
-}
-
-.separator-m-b {
-	margin-bottom: 80px;
-} */
