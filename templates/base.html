@@ -61,6 +61,8 @@
                         <li><a href="{% url 'frontpage:wedding-list' %}"
                                 class="nav-list__link js-nav-link {% if url_name == 'wedding-list' %}nav-list__link--active{% endif %}">Liste
                                 de mariage</a></li>
+                        <li><a href="{% url 'frontpage:covid-19' %}"
+                                class="nav-list__link js-nav-link {% if url_name == 'covid-19' %}nav-list__link--active{% endif %}">Infos crise sanitaire</a></li>
                         {% endwith %}
                     </ul>
                 </div>
@@ -99,6 +101,8 @@
             <li><a href="{% url 'frontpage:wedding-list' %}"
                     class="mobile-nav-list__link js-nav-link {% if url_name == 'wedding-list' %}mobile-nav-list__link--active{% endif %}">Liste
                     de mariage</a></li>
+            <li><a href="{% url 'frontpage:covid-19' %}"
+                    class="mobile-nav-list__link js-nav-link {% if url_name == 'covid-19' %}mobile-nav-list__link--active{% endif %}">Infos crise sanitaire</a></li>
             {% endwith %}
         </ul>
     </div>

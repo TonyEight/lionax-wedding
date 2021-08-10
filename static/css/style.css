@@ -26,6 +26,7 @@
 		11.1. Masonry
 	12. Footer
 	13. Form
+	14. Arrangements
 
 ----------------------------------------------------*/
 
@@ -1199,4 +1200,22 @@ a:focus {
 .separator {
 	width: 200px;
 	margin: 50px 0;
+}
+
+/*============== 14. Arrangements ==============*/
+.rules img {
+	height: 350px;
+}
+
+.tousanticovid a > img {
+	height: 40pt;
+	margin-top: 8pt;
+}
+
+.tousanticovid img {
+	height: 225px;
+}
+
+.tousanticovid {
+	margin-top: 2rem;
 }
