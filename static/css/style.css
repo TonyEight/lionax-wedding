@@ -103,12 +103,23 @@ a:focus {
 
 .alert a:hover,
 .alert a:focus {
-	color: #000;
+	color: #1c1c1c;
 	text-decoration: underline;
 }
 
 .alert {
 	background-color: #e6a27513;
+}
+
+.wedding-link a {
+	color: #1c1c1c;
+	text-decoration: none;
+}
+
+.wedding-link a:hover,
+.wedding a:focus {
+	color: #1c1c1c;
+	text-decoration: underline;
 }
 
 /* 1.1 Animations */
